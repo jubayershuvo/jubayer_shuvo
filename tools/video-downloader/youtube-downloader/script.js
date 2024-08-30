@@ -18,7 +18,7 @@ const btn = document.getElementById('btn');
 
             const inputUrl = document.querySelector('#url');
             const url = inputUrl.value;
-            if(!url){
+            if(!url || !url.includes('youtube.com') || !url.includes('youtu.be')){
                 err.innerHTML = 'Input valid url';
                 form.classList.remove('hide');
                 load.classList.add('hide');
