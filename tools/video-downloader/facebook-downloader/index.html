@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Downloader</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <p class="error"></p>
+
+    <div class="form" >
+        <form>
+            <input required id="url" type="text" placeholder="Enter Facebook video url">
+            <button id="btn" type="submit">GO</button>
+        </form>
+    </div>
+<div class="box hide">
+    <div class="content">
+        <h2>Title: <span class="description"></span></h2>
+        <h3 class="">Uploader: <span class="author"></span></h3>
+        <img class="thumbnail" alt="Thumbnail">
+    </div>
+    <div class="doptions">
+        <h2>Download options</h2>
+        <button><a class="sd" target="_blank">Download SD</a></button>
+        <button><a class="hd" target="_blank">Download HD</a></button>
+    </div>
+</div>
+    <div class="hide refresh"><button class="re_btn">Search another Video</button></div>
+    <div class="load hide"><div class="loader"></div></div>
+    <script src="./script.js"></script>
+</body>
+<footer>
+    &copy;All right and reserved reserved by Jubayer_shuvo 
+</footer>
+</html>
