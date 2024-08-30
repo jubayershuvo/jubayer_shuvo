@@ -131,7 +131,7 @@ body{
 
 .doptions button{
     display: block;
-    margin: 20px;
+    margin: 20px 0;
     align-items: center;
     border: none;
     background-color: transparent;
