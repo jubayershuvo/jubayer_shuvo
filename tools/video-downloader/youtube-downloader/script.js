@@ -4,7 +4,9 @@ const btn = document.getElementById('btn');
         let sauthor = document.querySelector('.author');
         let stitle = document.querySelector('.description');
         let smusic = document.querySelector('.music');
+        let smusicSize = document.querySelector('.music_size');
         let soriginal = document.querySelector('.original');
+        let soriginalSize = document.querySelector('.original_size');
         let doptions = document.querySelector('.doptions');
         let content = document.querySelector('.box');
         let form = document.querySelector('.form');
@@ -18,7 +20,7 @@ const btn = document.getElementById('btn');
 
             const inputUrl = document.querySelector('#url');
             const url = inputUrl.value;
-            if(!url || !url.includes('youtu')){
+            if(!url){
                 err.innerHTML = 'Input valid url';
                 form.classList.remove('hide');
                 load.classList.add('hide');
@@ -56,6 +58,9 @@ const btn = document.getElementById('btn');
                 
                 const audio_url = audio[0].url;
                 const video_with_audio_url = video_with_audio[0].url;
+                const video_with_audio_size = parseInt(video_with_audio[0].contentLength) / 1024/1024;
+                const audio_size = parseInt(audio[0].contentLength) / 1024/1024;
+                console.log(video_with_audio_size);
                 const {
                     author,
                     title
@@ -76,6 +81,8 @@ const btn = document.getElementById('btn');
             sauthor.innerHTML = author;
             smusic.href = audio_url;
             soriginal.href = video_with_audio_url;
+            soriginalSize.innerHTML = video_with_audio_size.toFixed(2)+'MB';
+            smusicSize.innerHTML = audio_size.toFixed(2)+'MB';
 
 
             
