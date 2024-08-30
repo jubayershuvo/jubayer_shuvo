@@ -18,13 +18,13 @@ body{
     text-align: center;
     margin: auto;
     margin-top: 100px;
-    height: 150px;
-    width: 200px;
+    height: 200px;
+    width: 300px;
     box-shadow: 1px 1px 2px 0px gray;
     border-radius: 20px;
 }
 #url{
-    margin-top: 20px;
+    margin-top: 50px;
     width: 90%;
     height: 40px;
     border: none;
@@ -35,9 +35,15 @@ body{
 
 #btn{
     margin-top: 20px;
-    width: 70px;
-    height: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
 }
+
 
 .load{
     display: block;
