@@ -28,31 +28,45 @@ const btn = document.getElementById('btn');
                 }, 1000);
                 return;
             }
+            // const options = {
+            //     method: 'POST',
+            //     url: 'https://facebook-video-downloader-api.p.rapidapi.com/facebook',
+            //     headers: {
+            //       'x-rapidapi-key': 'bd7a45a5b5msh239ed5c42821090p16ecccjsn60a61d11bd15',
+            //       'x-rapidapi-host': 'facebook-video-downloader-api.p.rapidapi.com',
+            //       'Content-Type': 'application/json'
+            //     },
+            //     data: {
+            //       url: url
+            //     }
+            //   };
             const options = {
-                method: 'POST',
-                url: 'https://facebook-video-downloader-api.p.rapidapi.com/facebook',
-                headers: {
-                  'x-rapidapi-key': 'bd7a45a5b5msh239ed5c42821090p16ecccjsn60a61d11bd15',
-                  'x-rapidapi-host': 'facebook-video-downloader-api.p.rapidapi.com',
-                  'Content-Type': 'application/json'
-                },
-                data: {
-                  url: url
-                }
-              };
+              method: 'GET',
+              url: 'https://facebook-video-downloader9.p.rapidapi.com/download',
+              params: {
+                url: url
+              },
+              headers: {
+                'x-rapidapi-key': 'bd7a45a5b5msh239ed5c42821090p16ecccjsn60a61d11bd15',
+                'x-rapidapi-host': 'facebook-video-downloader9.p.rapidapi.com'
+              }
+            };
 
             try {
                 const response = await axios.request(options);
                 console.log(response);
-                if(!response){
-                    console.log('error');
-                    return;
-                  }
-                const {formats, uploader, fulltitle, thumbnail} = response.data;
-                const sd_url = formats[1].url;
-                const hd_url = formats[2].url;
+                // if(!response){
+                //     console.log('error');
+                //     return;
+                //   }
+                // const {formats, uploader, fulltitle, thumbnail} = response.data;
+                // const sd_url = formats[1].url;
+                // const hd_url = formats[2].url;
 
-
+              const sd_url = response.data.data.download.sd.url;
+              const hd_url = response.data.data.download.hd.url;
+              const thumbnail = response.data.data.video.thumbnail_url;
+              const title = response.data.data.video.title;
 
                 load.classList.add('hide');
                 content.classList.remove('hide');
@@ -63,8 +77,8 @@ const btn = document.getElementById('btn');
             content.classList.remove('hide');
 
 
-            stitle.innerHTML = fulltitle;
-            sauthor.innerHTML = uploader;
+            stitle.innerHTML = title;
+            // sauthor.innerHTML = uploader;
             sthumbnail.src = thumbnail;
             ssd.href = sd_url;
             shd.href = hd_url;
